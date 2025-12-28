@@ -1,3 +1,4 @@
 [submodule "DEVO"]
 	path = DEVO
-	url = https://github.com/tum-vision/DEVO.git
+	url = git@github.com:jczekanska/DEVO.git
+	branch = main
