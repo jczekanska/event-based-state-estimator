@@ -2,7 +2,16 @@
 
 This project estimates position and velocity using monocular event-based visual odometry.
 
-## 1. Setup
+## 1. Clone this repository
+
+Clone this repository **with submodules** (DEVO and its third-party submodules):
+
+```bash
+git clone --recursive https://github.com/jczekanska/event-based-state-estimator.git
+cd event-based-state-estimator
+```
+
+## 2. Setup
 
 **Tested configuration:**
 - Ubuntu 22.04
@@ -11,22 +20,16 @@ This project estimates position and velocity using monocular event-based visual 
 
 The DEVO framework uses **Anaconda** to manage the Python environment.
 
-## 2. DEVO Installation
+## 3. DEVO Installation
 
 Follow the official **[DEVO repository setup instructions](https://github.com/tum-vision/DEVO/tree/main)**.
 
 A summarized version is provided below.
 
-### Clone DEVO
-
-```bash
-git clone https://github.com/tum-vision/DEVO.git --recursive
-cd DEVO
-```
-
 ### Create and activate the Conda environment
 
 ```bash
+cd DEVO
 conda env create -f environment.yml
 conda activate devo
 ```
@@ -46,7 +49,7 @@ Install DEVO:
 pip install .
 ```
 
-## 3. Pretrained Model
+## 4. Pretrained Model
 
 Download the pretrained model in the **DEVO directory**:
 
@@ -56,7 +59,7 @@ Download the pretrained model in the **DEVO directory**:
 
 This will download `DEVO.pth` (~40 MB).
 
-## 4. Dataset
+## 5. Dataset
 
 The code has been tested on the following RPG event camera rosbag files:
 
@@ -72,7 +75,7 @@ place them in the following directory:
 datasets/rpg
 ```
 
-## 5. Preprocessing the RPG dataset
+## 6. Preprocessing the RPG dataset
 
 Run the preprocessing script from the **DEVO directory**:
 
@@ -80,7 +83,7 @@ Run the preprocessing script from the **DEVO directory**:
 python scripts/pp_rpg.py --indir ../datasets/rpg
 ```
 
-## 6. Evaluating RPG Events
+## 7. Evaluating RPG Events
 
 Run the evaluation script from the **DEVO directory**:
 
@@ -97,4 +100,4 @@ python evals/eval_evs/eval_rpg_evs.py \
 
 This repository uses the [DEVO](https://github.com/tum-vision/DEVO) framework for event-based visual odometry:
 
-DEVO is included as a Git submodule and has been locally modified.
+DEVO is included as a Git submodule and contains the 2 local commits with modifications applied. Its own third-party submodules (`rpg_trajectory_evaluation` and `tartanair_tools`) are also automatically cloned with `--recursive`.
